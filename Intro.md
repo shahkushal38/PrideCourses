@@ -1,27 +1,37 @@
-## What is C++?
-C++ is a cross-platform language that can be used to create high-performance applications.
+## What is C?
+C is a general-purpose programming language created by Dennis Ritchie at the Bell Laboratories in 1972.
 
-C++ was developed by Bjarne Stroustrup, as an extension to the C language.
+It is a very popular language, despite being old.
 
-C++ gives programmers a high level of control over system resources and memory.
+C is strongly associated with UNIX, as it was developed to write the UNIX operating system.
 
-The language was updated 4 major times in 2011, 2014, 2017, and 2020 to C++11, C++14, C++17, C++20.
+## Why Learn C?
 
-## Why Use C++
-C++ is one of the world's most popular programming languages.
+It is one of the most popular programming language in the world
 
-C++ can be found in today's operating systems, Graphical User Interfaces, and embedded systems.
+If you know C, you will have no problem learning other popular programming languages such as Java, Python, C++, C#, etc, as the syntax is similar
 
-C++ is an object-oriented programming language which gives a clear structure to programs and allows code to be reused, lowering development costs.
+C is very fast, compared to other programming languages, like Java and Python
 
-C++ is portable and can be used to develop applications that can be adapted to multiple platforms.
+C is very versatile; it can be used in both applications and technologies
 
-C++ is fun and easy to learn!
+## C Program Components 
 
-As C++ is close to C, C# and Java, it makes it easy for programmers to switch to C++ or vice versa.
+Header files -- 
 
-## Difference between C and C++
-C++ was developed as an extension of C, and both languages have almost the same syntax.
+#include<stdio.h>   standard input output file
+#include<conio.h>   console input output
 
-The main difference between C and C++ is that C++ support classes and objects, while C does not.
+main function -- 
+
+void main(){
+
+    getch();
+}
+
+File save -- F2
+
+Compiler -  Alt + F9 
+
+Execute - Ctrl + F9
 
