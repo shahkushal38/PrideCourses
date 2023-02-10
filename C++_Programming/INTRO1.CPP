@@ -8,5 +8,6 @@ cout<< "\nEnter value of a:";
 cin>>a;
 
 cout<<"\nThe value of a is : "<<a;
+cout<<"\nThe value of a :"<<a<<" Hello world";
 getch();
 }
