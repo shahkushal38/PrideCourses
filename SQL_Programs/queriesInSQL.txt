@@ -1,0 +1,59 @@
+15/2/2023
+show databases;
+create database pride;
+use pride;
+show tables;
+
+create table student(id int PRIMARY KEY, f_name varchar (50) unique , l_name varchar(50), mobileNo int (10)NOT NULL );
+
+select * from student; 
+
+use sys;
+
+insert into student(id, l_name, f_name) values(1,"Kushal", "Shah");
+
+insert into student values(2,"Kushal", "Shah", 1234567899);
+
+drop table student;
+
+17/2/2023
+NOT NULL - Ensures that a column cannot have a NULL value
+UNIQUE - Ensures that all values in a column are different
+PRIMARY KEY - A combination of a NOT NULL and UNIQUE. Uniquely identifies each row in a table
+FOREIGN KEY - Prevents actions that would destroy links between tables
+CHECK - Ensures that the values in a column satisfies a specific condition
+
+CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    City varchar(255),
+    CONSTRAINT CHK_Person CHECK (Age>=18 AND City='Sandnes')
+);
+
+DEFAULT - Sets a default value for a column if no value is specified
+
+The FOREIGN KEY constraint is used to prevent actions that would destroy links between tables.
+
+A FOREIGN KEY is a field (or collection of fields) in one table, that refers to the PRIMARY KEY in another table.
+
+CREATE TABLE Orders (
+    OrderID int NOT NULL,
+    OrderNumber int NOT NULL,
+    PersonID int,
+    PRIMARY KEY (OrderID),
+    FOREIGN KEY (PersonID) REFERENCES Persons(PersonID)
+);
+
+ALTER TABLE Orders
+DROP FOREIGN KEY FK_PersonOrder;
+
+ALTER TABLE Orders
+ADD CONSTRAINT FK_PersonOrder
+FOREIGN KEY (PersonID) REFERENCES Persons(PersonID);
+
+WHERE Clause Example
+SELECT column1, column2, ...FROM table_name WHERE condition;
+
+SELECT * FROM Customers WHERE CustomerID = 1;
