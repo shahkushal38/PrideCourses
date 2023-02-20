@@ -16,3 +16,28 @@ SELECT * FROM Customers ORDER BY Country DESC;
 UPDATE Customers SET ContactName = 'Alfred Schmidt', City= 'Frankfurt' WHERE CustomerID = 1;
 
 DELETE FROM Customers WHERE CustomerName='Alfreds Futterkiste';
+
+
+22/02/2023
+
+SELECT TOP 3 * FROM Customers; 
+SELECT * FROM Customers LIMIT 3;
+
+SELECT MIN(Price) AS SmallestPrice FROM Products;
+
+SELECT COUNT(column_name) FROM table_name WHERE condition;
+
+SELECT AVG(column_name) FROM table_name WHERE condition;
+
+SELECT SUM(column_name) FROM table_name WHERE condition;
+
+SELECT column1, column2, ... FROM table_name WHERE columnN LIKE pattern;
+
+LIKE Operator	Description
+WHERE CustomerName LIKE 'a%'	Finds any values that start with "a"
+WHERE CustomerName LIKE '%a'	Finds any values that end with "a"
+WHERE CustomerName LIKE '%or%'	Finds any values that have "or" in any position
+WHERE CustomerName LIKE '_r%'	Finds any values that have "r" in the second position
+WHERE CustomerName LIKE 'a_%'	Finds any values that start with "a" and are at least 2 characters in length
+WHERE CustomerName LIKE 'a__%'	Finds any values that start with "a" and are at least 3 characters in length
+WHERE ContactName LIKE 'a%o'	Finds any values that start with "a" and ends with "o"
