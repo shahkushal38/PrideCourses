@@ -17,7 +17,7 @@ class Box
     private:    
         int length;    
     public:    
-        Box(): length(0) { }    
+        // Box(): length(0) { }    
         friend int printLength(Box); //friend function    
 };    
 int printLength(Box b)    
@@ -32,9 +32,9 @@ int main()
     return 0;    
 }  
 
-
+/*
 Let's see a simple example when the function is friendly to two classes.
-
+*/
 #include <iostream>  
 using namespace std;  
 class B;          // forward declarartion.  
@@ -73,12 +73,12 @@ void min(A a,B b)
    b.setdata(20);  
    min(a,b);  
     return 0;  
- }  
+}  
  
- 
+/* 
  C++ Friend class
 A friend class can access both private and protected members of the class in which it has been declared as friend.
-
+*/
 
 #include <iostream>  
   
@@ -96,7 +96,7 @@ class B
     {  
         cout<<"value of x is : "<<a.x;  
     }  
-};  
+}; 
 int main()  
 {  
     A a;  

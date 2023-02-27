@@ -18,3 +18,70 @@ FROM Customers
 FULL OUTER JOIN Orders ON Customers.CustomerID=Orders.CustomerID
 ORDER BY Customers.CustomerName;
 
+Code ----
+use pride;
+
+create table customers (id int PRIMARY KEY, name varchar (100), city varchar (100));
+insert into customers values(1, "Kushal", "Mumbai");
+insert into customers values(2, "Prem", "Mumbai");
+insert into customers values(3, "Sheetal", "Mumbai");
+insert into customers values(4, "Jai", "Mumbai");
+
+select * from customers;
+drop table orders;
+
+
+create table orders  (OrderId int PRIMARY KEY, customerId int, item varchar (100));
+insert into orders values(1, 1, "Phone");
+insert into orders values(2, 1, "Washing Machine");
+insert into orders values(3, 1, "Pen drive");
+insert into orders values(4, 3, "Tablet");
+insert into orders values(5,5,"Computer");
+select * from orders;
+
+
+SELECT orders.OrderID, customers.name, customers.city, orders.item
+FROM customers
+INNER JOIN orders ON customers.id=orders.customerId;
+
+
+SELECT *
+FROM customers
+FULL JOIN orders ON id= customerId ORDER BY name;
+
+
+
+
+01/03/2023
+
+SQL CREATE VIEW Statement
+In SQL, a view is a virtual table based on the result-set of an SQL statement.
+
+A view contains rows and columns, just like a real table. The fields in a view are fields from one or more real tables in the database.
+
+You can add SQL statements and functions to a view and present the data as if the data were coming from one single table.
+
+A view is created with the CREATE VIEW statement.  
+
+
+CREATE VIEW view_name AS
+SELECT column1, column2, ...
+FROM table_name
+WHERE condition;
+
+SELECT * FROM [Brazil Customers];
+
+CREATE VIEW [Products Above Average Price] AS
+SELECT ProductName, Price
+FROM Products
+WHERE Price > (SELECT AVG(Price) FROM Products);
+
+SELECT * FROM  [Products Above Average Price];
+
+
+CREATE OR REPLACE VIEW view_name AS
+SELECT column1, column2, ...
+FROM table_name
+WHERE condition;
+
+DROP VIEW view_name;
