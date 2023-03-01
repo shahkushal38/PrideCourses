@@ -1,0 +1,53 @@
+03/03/2023
+
+Triggers in SQL 
+
+Trigger: A trigger is a stored procedure in database which automatically invokes whenever a special event 
+in the database occurs. For example, a trigger can be invoked when a row is inserted into a specified table 
+or when certain table columns are being updated. 
+
+create trigger [trigger_name] 
+[before | after]  
+{insert | update | delete}  
+on [table_name]  
+[for each row]  
+[trigger_body] 
+
+
+Given Student Report Database, in which student marks assessment is recorded. 
+In such schema, create a trigger so that the total and percentage of specified marks is automatically 
+inserted whenever a record is insert. 
+
+Here, as trigger will invoke before record is inserted so, BEFORE Tag can be used. 
+
+mysql> desc Student; 
++-------+-------------+------+-----+---------+----------------+ 
+| Field | Type        | Null | Key | Default | Extra          | 
++-------+-------------+------+-----+---------+----------------+ 
+| tid   | int(4)      | NO   | PRI | NULL    | auto_increment | 
+| name  | varchar(30) | YES  |     | NULL    |                | 
+| subj1 | int(2)      | YES  |     | NULL    |                | 
+| subj2 | int(2)      | YES  |     | NULL    |                | 
+| subj3 | int(2)      | YES  |     | NULL    |                | 
+| total | int(3)      | YES  |     | NULL    |                | 
+| per   | int(3)      | YES  |     | NULL    |                |
++-------+-------------+------+-----+---------+----------------+ 
+
+
+create trigger stud_marks 
+before INSERT 
+on 
+Student 
+for each row 
+set Student.total = Student.subj1 + Student.subj2 + Student.subj3, Student.per = Student.total * 60 / 100;
+
+insert into Student values(0, "ABCDE", 20, 20, 20, 0, 0); 
+Query OK, 1 row affected (0.09 sec) 
+
+mysql> select * from Student; 
++-----+-------+-------+-------+-------+-------+------+ 
+| tid | name  | subj1 | subj2 | subj3 | total | per  | 
++-----+-------+-------+-------+-------+-------+------+ 
+| 100 | ABCDE |    20 |    20 |    20 |    60 |   36 | 
++-----+-------+-------+-------+-------+-------+------+ 
+1 row in set (0.00 sec)
