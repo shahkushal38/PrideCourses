@@ -1,0 +1,78 @@
+<html>
+      <head>
+        <title>Forms</title>
+        <link rel="stylesheet" href="mystyle.css">
+      </head>
+      <style>
+
+        #id1
+        {
+          color: aqua;
+          text-align: center;
+
+        }
+        .class1
+        {
+          border-style: solid;
+          border-width: medium;
+        }
+
+        #div1 {
+        height: 50px;
+        width: 100%;
+        border: 1px solid #4CAF50;
+        margin: 100px;
+        margin-left: 56px;
+        margin-bottom: 23px;
+        
+      }
+      body{
+        background-image: url(download2.jpg), url(download1.jpg);
+        background-position: right bottom, left top;
+        background-repeat: no-repeat, repeat;
+      }
+      
+      </style>
+      
+      <body>
+        <h1> WELCOME </h1> <br><br>
+        <form method="POST" action="">
+            Username :
+            <input type="text" placeholder="Enter your name" style="border-color:aliceblue"><br>
+            Password: <br>
+            <input type="password" placeholder="Enter your password"><br>
+            
+            Gender:<br>
+            <input type="radio" value="female" name = "g1"> Female <br>
+            <input type="radio" value="male" name = "g1"> male <br>
+            Eduction:<br>
+            <input type="checkbox" name="c1" value="SSC"> SSC <br>
+            <input type="checkbox" name="c2" value="ICSE"> ICSE <br>
+            <input type="checkbox" name="c3" value="IGCSE"> IGSCE <br>
+            <input type="checkbox" name="c4" value="CBSE"> CBSE <br>
+            
+            City :<br> <select name="city">
+
+            <option value-"mumbai">Mumbai</option>
+            <option value-"chennai">Chennai</option>
+            <option value-"kolakta">Kolkata</option>
+        </select><br>
+
+        
+            Submit 
+            <input type="submit">
+
+            Reset <input type="reset">
+
+        </form>
+
+
+        <br>
+        <br>
+       
+
+        
+        
+        <div id="div1">This div element has a height of 50 pixels and a width of 100%.</div>
+      </body>      
+</html>
