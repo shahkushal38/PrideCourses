@@ -51,7 +51,7 @@ void main(){
     }
     printf("\n Out of loop i = %d",i);
 
-    i=0;
+    i=1;
     while(i<10){
 	printf("\n In while loop %d * 5 = %d",i,i*5);
 	i=i*2;
