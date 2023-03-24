@@ -19,8 +19,11 @@ int arr[10];
 
 method 1 
 int arr[10]={1,2,3,4,5,6,7,8,9,4};
-arer[4] = 5
+indexing -->  0,1,2,3 ...9
+printf("The value is - %d ", arr[0]); 1
+arr[4] = 5
 arr[9]=10
+arr[13] Error
 arr[-1]= 4
 
 int arr[10];
