@@ -36,10 +36,18 @@ Multidimensional arrays
 
 int matrix[3][3]={{1,2,3},{4,5,6},{7,8,9}};
 
+5 = matrix[1][2]
+{
+ 0   1 2 3
+ 1   4 5 6
+ 2   7 8 9
+
+}
 int i,j;
 for(i=0;i<3;i++){
-	
+    i = 0 , 1, 2
 	for(j=0;j<3;j++){
+        j = 0 ,1, 2 
 			printf("%d", matrix[i][j]);
 	}
 }
@@ -76,20 +84,24 @@ Q2)
    ****
 */
 
+2-Dimensional Array
 
 #include<stdio.h>
 #include<conio.h>
 
 void main(){
 
-    int matrix1[3][3];
+    int matrix1[3][4] = {{1,2,3,8},{4,5,6,8},{7,8,9,8} };
+
+    matrix1[0][2] = 3
+    matrix1[2][2] 
     int matrix2[3][3];
     int ans[3][3];
     int i,j,c;
     clrscr();
     printf("\nEnter the elements of the matrix1:\n");
     for(i=0;i<3;i++){
-        for(j=0;j<3;j++){
+        for(j=0;j<4;j++){
 	    scanf("%d", &matrix1[i][j]);
 	}
     }
@@ -160,3 +172,10 @@ void main(){
 
     getch();
 }
+
+
+3 - Dimensional arrays
+
+arr[3][3][3]={{ {1 , 2,3} , {4,5,6} ,{7,8,9}  },{ },{ } }
+
+arr[0][1][2] = 6
