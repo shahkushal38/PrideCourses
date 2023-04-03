@@ -42,19 +42,38 @@ C allows us to store different types of data
 Variables are containers that store information or data.
 
 Primitive Data Types
-int
-char
-float
+int  eg --> -100, 0, 245   4 bytes of space / 8 bytes
+char --> 'a', 'A' , '4' '&'  1 or 2 bytes   
+float --> eg 3.14 7.9846    8 bytes of space
 
 Non Primitive Data Types 
 
-Arrays
-Structure
-Union
-String
+Arrays = collection of multiple numers or decimal 
+Structure eg - Library Book Title (String), id (int) price (int/float) author genre , publications 
+Union - same as structures  
+String = collection of multiple characters = "Kushal Shah" = 11 bytes
+
+
 
 Variables 
+specifications of a computer = i5, 1TB 64GB, 128 GB Hard Disk 
+RAM Random Access Memory - 4GB 8GB 6GB 16GB 
 
+Giga Bytes = 10 ^ 9 
+Tera = 10^12 bytes
+variables - 
+
+Containers that contains/holds the value to be saved
+int var = 4;
+
+int var;
+var = 4;
+datatype variable_name;  //variable declaration
+
+variable_name = 10;  //variable initialisation
+
+
+date_of_birth OR dateOfBirth
 -- It should not contain any space
 -- It should not start with a number, capital letter or special character
 -- It should follow camel casing noOfDays
