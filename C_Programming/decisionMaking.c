@@ -1,11 +1,14 @@
-age 
 if
 if ... else 
 if .. else if ... else
 switch
+age>18
 
-if(condition && condition){
+marks>90
+
+if(condition && condition && condition){
     //code
+    
 
 }
 
@@ -19,6 +22,8 @@ else{
     //code 
 }
 
+marks>90
+marks>80 
 
 if(condition1){
 
@@ -56,7 +61,7 @@ void main(){
 }
 
 --Question 
-Give marks of 4 subjects English, Maths, Science, History (out of 100)
+1) Give marks of 4 subjects English, Maths, Science, History (out of 100)
 Calculate average (float)
 
 >90 = Grade A 
@@ -64,6 +69,8 @@ Calculate average (float)
 >70 and <=79 = Grade C
 >60 and <=69 = Grade D 
 <60 = Grade E 
+
+2) Given 3 numbers from the user - a,b and c. Find the largest of all
 
 switch(a){
 
