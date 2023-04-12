@@ -72,17 +72,32 @@ Calculate average (float)
 
 2) Given 3 numbers from the user - a,b and c. Find the largest of all
 
+int a;
+
+switch(a){
+    case 10:
+        //code
+        break;
+    case 20:
+        //code
+        break;
+    default:
+        break; 
+}
+
+char a;
 switch(a){
 
     case 'a':
-        printf("/n The month is ");
+        //code
+        printf("/n This a vowel ");
         break;
-    case 'b':
+    case 'e':
         printf()
         break;
-    case 'c':
+    case 'i':
         break;
-    case 'd':
+    case 'o':
         break;
     default:
         //code
