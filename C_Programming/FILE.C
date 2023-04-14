@@ -3,7 +3,7 @@
 void main(){
 FILE *fp;
 
-fp=fopen("tutorial.txt","a+");//r,w,a,r+,w+,a+
+fp=fopen("tutorial.txt","a+"); //r,w,a,r+,w+,a+
 clrscr();
 fprintf(fp,"This is testing for printf \n");
 fputs("Welcome to pride \n",fp);

@@ -15,13 +15,15 @@ for(initialisation; condition;increment/derement){
 
 eg = 
 int i;
-for(i=0;i<10; i++){
+for(i=0;i<10; i= i*2){
     print("%d", i); 
 }
 
 i = 0
 i = 1
 i = 2 ...3 4 5 6 7 8 9 10
+
+i=0, -1, -2 -3 ..........
 
 int i=0;
 while(condition){
@@ -47,8 +49,10 @@ void main(){
     int i;
     clrscr();
     for(i=0;i<10;i++){
-        printf("\n%d * 5 = %d", i, i*5);
+        //0 to 10
+        printf("\n%d * 5 = %d", i, i*5); 
     }
+    
     printf("\n Out of loop i = %d",i);
 
     i=1;
