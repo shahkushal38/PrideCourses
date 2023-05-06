@@ -1,4 +1,7 @@
 MySQL - Introduction
+Database Query Language
+SQL - Structured Query Language 
+MySQL was created by Oracle 
 
 Databases - 
 -> txt, doc, excel 
@@ -10,6 +13,7 @@ Data gets stored in the form of JSON objects (JavaScript Objct Notation)
 {
     "key":"value",
     "key2":"value2",
+    "city":"Mumbai"
 }
 
 {
@@ -26,7 +30,7 @@ SQL - Structured Query Language -
 Tabular form
 specific columns
 
-name address mobileNo
+name address mobileNo column1
 
 
 mysql.com - community server, mysql workbench
