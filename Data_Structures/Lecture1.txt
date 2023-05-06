@@ -1,0 +1,59 @@
+
+Topic - Mathematics
+
+1) Count Number of Digits
+
+2) Arithmetic and Geometric Progression 
+
+Arithmetic Progression
+nth term = a + (n-1)d 
+Sum of AP = n/2 (2a + (n-1)d)
+
+Geometric Progression
+nth term of a GP = a*r ^(n-1).
+Geometric Mean = nth root of the product of n terms in the GP.
+Sum of ‘n’ terms of a GP (r < 1) = [a (1 – r^n)] / [1 – r].
+Sum of ‘n’ terms of a GP (r > 1) = [a (r^n – 1)] / [r – 1].
+Sum of infinite terms of a GP (r < 1) = (a) / (1 – r).
+
+3) Quadratic equations 
+
+ax^2 + bx +c = 0
+
+roots = (-b ± √(b2 - 4ac))/2a
+
+4) Mean and Median
+
+5) Prime Numbers - 
+
+- Naive Method for Prime Number
+- Sieve of Eratosthenes algorithm
+
+Using Sieve of Eratosthenes is the most efficient way of generating prime numbers up to a given number N.
+
+Following is the algorithm to find all the prime numbers less than or equal to a given integer n by Eratosthenes' method:
+ 
+
+1. Create a list of consecutive integers from 2 to n: (2, 3, 4, ..., n).
+2. Initially, let p equal 2, the first prime number.
+3. Starting from p2, count up in increments of p and mark each of these numbers greater than or equal to p2 itself in the list. These numbers will be p(p+1), p(p+2), p(p+3), etc..
+4. Find the first number greater than p in the list that is not marked. If there was no such number, stop. Otherwise, let p now equal this number (which is the next prime), and repeat from step 3.
+
+6) LCM and HCF 
+finding GCD using Euclidean Algorithm:
+gcd(a, b)
+{
+    if (a == 0)
+        return b;
+
+    return gcd(b % a, a);
+}
+
+Time Complexity: O(log(min(a, b)))
+
+Important properties of LCM and HCF:
+For two numbers say, 'a' and 'b', LCM x HCF = a x b.
+HCF of co-primes = 1.
+For two fractions,
+HCF = HCF (Numerators) / LCM (Denominators)
+LCM = LCM (Numerators) / HCF (Denominators)
