@@ -57,3 +57,18 @@ HCF of co-primes = 1.
 For two fractions,
 HCF = HCF (Numerators) / LCM (Denominators)
 LCM = LCM (Numerators) / HCF (Denominators)
+
+7) Permutation and Combinations Basics
+
+8) Modular Arithmetic 
+
+
+
+Questions to Solve 
+
+1) Smallest divisible number - https://www.geeksforgeeks.org/smallest-number-divisible-first-n-numbers/ 
+2) Sum of two numbers modulo M - https://www.geeksforgeeks.org/sum-of-two-numbers-modulo-m/
+3) Count digits in a factorial - https://practice.geeksforgeeks.org/problems/count-digits-in-a-factorial3957/1 
+4) Series GP - https://practice.geeksforgeeks.org/problems/series-gp4646/1
+5) 3 divisors - https://practice.geeksforgeeks.org/problems/3-divisors3942/1 
+6) Modular Multiplicative Inverse - https://practice.geeksforgeeks.org/problems/modular-multiplicative-inverse-1587115620/1
