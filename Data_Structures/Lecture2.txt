@@ -1,0 +1,142 @@
+Arrays 
+
+Definition - An array is a collection of items of the same data type stored at contiguous memory locations.  
+
+1) Binary Search in an Array
+
+Searching for an element in an array means to check if a given element is present in the array or not. This can be done by accessing elements of the array one by one starting from the first element and checking whether any of the elements matches with the given element.
+
+Code for Normal Search 
+
+for(i = 0; i < N; i++)
+{
+    if(arr[i] == key)
+    { 
+        print "Element Found";
+    }
+    else
+    {
+        print "Element not Found";
+    }
+}
+
+How to Implement Binary Search?
+The basic steps to perform Binary Search are:
+
+Set the low index to the first element of the array and the high index to the last element.
+Set the middle index to the average of the low and high indices.
+If the element at the middle index is the target element, return the middle index.
+Otherwise, based on the value of the key to be found and the value of the middle element, decide the next search space.
+If the target is less than the element at the middle index, set the high index to middle index – 1.
+If the target is greater than the element at the middle index, set the low index to middle index + 1.
+Perform step 2 repeatedly until the target element is found or the search space is exhausted.
+
+Code for Binary Search
+
+// Java implementation of iterative Binary Search
+class BinarySearch {
+	// Returns index of x if it is present in arr[],
+	// else return -1
+	int binarySearch(int arr[], int x)
+	{
+		int l = 0, r = arr.length - 1;
+		while (l <= r) {
+			int m = l + (r - l) / 2;
+
+			// Check if x is present at mid
+			if (arr[m] == x)
+				return m;
+
+			// If x greater, ignore left half
+			if (arr[m] < x)
+				l = m + 1;
+
+			// If x is smaller, ignore right half
+			else
+				r = m - 1;
+		}
+
+		// if we reach here, then element was
+		// not present
+		return -1;
+	}
+
+	// Driver method to test above
+	public static void main(String args[])
+	{
+		BinarySearch ob = new BinarySearch();
+		int arr[] = { 2, 3, 4, 10, 40 };
+		int n = arr.length;
+		int x = 10;
+		int result = ob.binarySearch(arr, x);
+		if (result == -1)
+			System.out.println(
+				"Element is not present in array");
+		else
+			System.out.println("Element is present at "
+							+ "index " + result);
+	}
+}
+
+
+Sliding Window Technique
+
+Below is the function for sliding window Technique, you need to write the full code for it.
+
+ static int maxSum(int arr[], int n, int k)
+    {
+        // n must be greater
+        if (n < k) {
+            System.out.println("Invalid");
+            return -1;
+        }
+ 
+        // Compute sum of first window of size k
+        int max_sum = 0;
+        for (int i = 0; i < k; i++)
+            max_sum += arr[i];
+ 
+        // Compute sums of remaining windows by
+        // removing first element of previous
+        // window and adding last element of
+        // current window.
+        int window_sum = max_sum;
+        for (int i = k; i < n; i++) {
+            window_sum += arr[i] - arr[i - k];
+            max_sum = Math.max(max_sum, window_sum);
+        }
+ 
+        return max_sum;
+    }
+ 
+
+ Reversing an Array 
+
+Below is the function for array reversal, you need to write the full code for it.
+
+
+ static void reverse(int a[], int n)
+    {
+        int i, k, t;
+        for (i = 0; i < n / 2; i++) {
+            t = a[i];
+            a[i] = a[n - i - 1];
+            a[n - i - 1] = t;
+        }
+  
+        // printing the reversed array
+        System.out.println("Reversed array is: \n");
+        for (k = 0; k < n; k++) {
+            System.out.println(a[k]);
+        }
+    }
+  
+
+
+  Questions for Array --
+
+  1) Reverse array in groups - https://practice.geeksforgeeks.org/problems/reverse-array-in-groups0255/1
+  2) Find Transition Point - https://practice.geeksforgeeks.org/problems/find-transition-point-1587115620/1
+  3) Kadane's Algorithm - https://practice.geeksforgeeks.org/problems/kadanes-algorithm-1587115620/1
+  4) Trapping Rain Water - https://practice.geeksforgeeks.org/problems/trapping-rain-water-1587115621/1 
+  
