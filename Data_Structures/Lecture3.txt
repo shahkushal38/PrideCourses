@@ -1,0 +1,246 @@
+Topic - Searching and Sorting Algorithms
+
+Sorting any sequence means to arrange the elements of that sequence according to some specific criterion.
+
+For Example, the array arr[] = {5, 4, 2, 1, 3} after sorting in increasing order will be: arr[] = {1, 2, 3, 4, 5}. The same array after sorting in descending order will be: arr[] = {5, 4, 3, 2, 1}.
+
+1) Selection Sort 
+
+The selection sort algorithm sorts an array by repeatedly finding the minimum element (considering ascending order) from unsorted part and putting it at the beginning. The algorithm maintains two subarrays in a given array.
+ 
+
+The subarray which is already sorted.
+Remaining subarray which is unsorted.
+
+
+In every iteration of selection sort, the minimum element (considering ascending order) from the unsorted subarray is picked and moved to the sorted subarray. 
+
+Following example explains the above steps:
+arr[] = 64 25 12 22 11.
+
+// Find the minimum element in arr[0...4]
+// and place it at beginning
+11 25 12 22 64
+
+// Find the minimum element in arr[1...4]
+// and place it at beginning of arr[1...4]
+11 12 25 22 64
+
+// Find the minimum element in arr[2...4]
+// and place it at beginning of arr[2...4]
+11 12 22 25 64
+
+// Find the minimum element in arr[3...4]
+// and place it at beginning of arr[3...4]
+11 12 22 25 64
+
+
+void selectionSort(int []arr, int n)
+{
+   // One by one move boundary of unsorted subarray
+    for ( int i = 0; i < n-1; i++)
+    {
+        // Find the minimum element in unsorted array
+        int min_idx = i;
+        for ( int j = i+1; j < n; j++)
+          if (arr[j] < arr[min_idx])
+            min_idx = j;
+
+        // Swap the found minimum element with the first element
+        swap(&arr[min_idx], &arr[i]);
+    }
+}
+
+Time Complexity = O(n^2)
+
+2) Bubble Sort
+
+Bubble Sort is also an in-place sorting algorithm. This is the simplest sorting algorithm and it works on the principle that:
+
+In one iteration if we swap all adjacent elements of an array such that after swap the first element is less than the second element then at the end of the iteration, the first element of the array will be the minimum element.
+ 
+
+
+ Bubble-Sort algorithm simply repeats the above steps N-1 times, where N is the size of the array.
+
+Example: Consider the array, arr[] = {5, 1, 4, 2, 8}.
+ 
+
+First Pass: ( 5 1 4 2 8 ) --> ( 1 5 4 2 8 ), Here, algorithm compares the first two elements, and swaps since 5 > 1. ( 1 5 4 2 8 ) -->  ( 1 4 5 2 8 ), Swap since 5 > 4 ( 1 4 5 2 8 ) -->  ( 1 4 2 5 8 ), Swap since 5 > 2 ( 1 4 2 5 8 ) --> ( 1 4 2 5 8 ), Now, since these elements are already in order (8 > 5), algorithm does not swap them.
+
+Second Pass: ( 1 4 2 5 8 ) --> ( 1 4 2 5 8 ) ( 1 4 2 5 8 ) --> ( 1 2 4 5 8 ), Swap since 4 > 2 ( 1 2 4 5 8 ) --> ( 1 2 4 5 8 ) ( 1 2 4 5 8 ) -->  ( 1 2 4 5 8 ) Now, the array is already sorted, but our algorithm does not know if it is completed. The algorithm needs one whole pass without any swap to know it is sorted.
+
+Third Pass: ( 1 2 4 5 8 ) --> ( 1 2 4 5 8 ) ( 1 2 4 5 8 ) --> ( 1 2 4 5 8 ) ( 1 2 4 5 8 ) --> ( 1 2 4 5 8 ) ( 1 2 4 5 8 ) --> ( 1 2 4 5 8 )
+
+void bubbleSort(int []arr, int n) 
+{ 
+   for ( int i = 0; i < n-1; i++)       
+  
+       // Last i elements are already in place    
+       for (int j = 0; j < n-i-1; j++)  
+           if (arr[j] > arr[j+1]) 
+              swap(&arr[j], &arr[j+1]); 
+} 
+
+Time Complexity: O(N2)
+
+
+3) Merge Sort
+
+
+Merge Sort is a Divide and Conquer algorithm. It divides the input array in two halves, calls itself for the two halves and then merges the two sorted halves. The merge() function is used for merging two halves. 
+
+MergeSort(arr[], l,  r)
+
+If r > l
+     1. Find the middle point to divide the array into two halves:  
+             middle m = (l+r)/2
+     2. Call mergeSort for first half:   
+             Call mergeSort(arr, l, m)
+     3. Call mergeSort for second half:
+             Call mergeSort(arr, m+1, r)
+     4. Merge the two halves sorted in step 2 and 3:
+             Call merge(arr, l, m, r)
+
+
+
+/* Java program for Merge Sort */
+class MergeSort {
+    // Merges two subarrays of arr[].
+    // First subarray is arr[l..m]
+    // Second subarray is arr[m+1..r]
+    void merge(int arr[], int l, int m, int r)
+    {
+        // Find sizes of two subarrays to be merged
+        int n1 = m - l + 1;
+        int n2 = r - m;
+ 
+        /* Create temp arrays */
+        int L[] = new int[n1];
+        int R[] = new int[n2];
+ 
+        /*Copy data to temp arrays*/
+        for (int i = 0; i < n1; ++i)
+            L[i] = arr[l + i];
+        for (int j = 0; j < n2; ++j)
+            R[j] = arr[m + 1 + j];
+ 
+        /* Merge the temp arrays */
+ 
+        // Initial indexes of first and second subarrays
+        int i = 0, j = 0;
+ 
+        // Initial index of merged subarray array
+        int k = l;
+        while (i < n1 && j < n2) {
+            if (L[i] <= R[j]) {
+                arr[k] = L[i];
+                i++;
+            }
+            else {
+                arr[k] = R[j];
+                j++;
+            }
+            k++;
+        }
+ 
+        /* Copy remaining elements of L[] if any */
+        while (i < n1) {
+            arr[k] = L[i];
+            i++;
+            k++;
+        }
+ 
+        /* Copy remaining elements of R[] if any */
+        while (j < n2) {
+            arr[k] = R[j];
+            j++;
+            k++;
+        }
+    }
+ 
+    // Main function that sorts arr[l..r] using
+    // merge()
+    void sort(int arr[], int l, int r)
+    {
+        if (l < r) {
+            // Find the middle point
+            int m = l + (r - l) / 2;
+ 
+            // Sort first and second halves
+            sort(arr, l, m);
+            sort(arr, m + 1, r);
+ 
+            // Merge the sorted halves
+            merge(arr, l, m, r);
+        }
+    }
+ 
+    /* A utility function to print array of size n */
+    static void printArray(int arr[])
+    {
+        int n = arr.length;
+        for (int i = 0; i < n; ++i)
+            System.out.print(arr[i] + " ");
+        System.out.println();
+    }
+
+
+Time complexity of Merge Sort is O(nLogn)
+Auxiliary Space: O(n) 
+
+4) Quick Sort
+
+QuickSort is a Divide and Conquer algorithm. It picks an element as pivot and partitions the given array around the picked pivot
+
+There are many different versions of quickSort that pick pivot in different ways. 
+ 
+
+Always pick first element as pivot.
+Always pick last element as pivot (implemented below)
+Pick a random element as pivot.
+Pick median as pivot.
+
+/* This function takes last element as pivot, places
+   the pivot element at its correct position in sorted
+   array, and places all smaller (smaller than pivot)
+   to left of pivot and all greater elements to right
+   of pivot */
+int partition (int arr[], int low, int high)
+{
+    int pivot = arr[high];    // pivot
+    int i = (low - 1);  // Index of smaller element
+
+    for (int j = low; j <= high- 1; j++)
+    {
+        // If current element is smaller than or
+        // equal to pivot
+        if (arr[j] <= pivot)
+        {
+            i++;    // increment index of smaller element
+            swap(arr[i], arr[j]);
+        }
+    }
+
+    swap(arr[i + 1], arr[high]);
+    return (i + 1);
+}
+
+/* The main function that implements QuickSort
+   arr[] --> Array to be sorted,
+   low  --> Starting index,
+   high  --> Ending index */
+void quickSort(int arr[], int low, int high)
+{
+    if (low < high)
+    {
+        /* pi is partitioning index, arr[p] is now
+           at right place */
+        int pi = partition(arr, low, high);
+
+        // Separately sort elements before
+        // partition and after partition
+        quickSort(arr, low, pi - 1);
+        quickSort(arr, pi + 1, high);
+    }
+}
