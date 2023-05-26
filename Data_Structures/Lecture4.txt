@@ -1,0 +1,25 @@
+Introduction to Matrix
+
+A matrix represents a collection of numbers arranged in order of rows and columns. It is necessary to enclose the elements of a matrix in parentheses or brackets.
+
+Order of a Matrix : The order of a matrix is defined in terms of its number of rows and columns.
+
+Transpose of a Matrix: The transpose [M]T of an m x n matrix [M] is the n x m matrix obtained by interchanging the rows and columns of [M].
+
+Properties of transpose of a matrix:
+ 
+(AT)T = A
+(A+B)T = AT + BT
+(AB)T = BTAT
+
+
+
+
+Properties of Matrix addition and multiplication:
+ 
+A+B = B+A (Commutative)
+(A+B)+C = A+ (B+C) (Associative)
+AB ≠ BA (Not Commutative)
+(AB) C = A (BC) (Associative)
+A (B+C) = AB+AC (Distributive)
+
