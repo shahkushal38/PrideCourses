@@ -1,6 +1,6 @@
 /*
 Inheritance and Polymorphism
-Polymorphism - "Poly" = many  "phorms" = methods
+Polymorphism - "Poly" = many  "morphism" = methods
 method overloading and method overriding
 */
 #include<iostream.h>
