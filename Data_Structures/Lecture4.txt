@@ -69,3 +69,13 @@ For computing A*B, the number of columns in A must be equal to number of rows in
 Existence of A*B does not imply existence of B*A
 The complexity of multiplication operation (A*B) is O(m*n*p) where m*n and n*p are order of A and B respectively
 The order of matrix C computed as A*B is O(m*p) where m*n and n*p are order of A and B respectively
+
+Questions  - 
+
+1) Spirally traversing a matrix - https://practice.geeksforgeeks.org/problems/spirally-traversing-a-matrix-1587115621/1
+2) Row with Max 1's - https://practice.geeksforgeeks.org/problems/row-with-max-1s0023/1
+3) Rotate a matrix by 90 degree - https://www.geeksforgeeks.org/rotate-a-matrix-by-90-degree-in-clockwise-direction-without-using-any-extra-space/.
+
+
+
+For ArrayList Refer code - https://www.geeksforgeeks.org/arraylist-in-java/
