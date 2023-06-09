@@ -1,0 +1,48 @@
+Lecture 6  - Stacks and Queues 
+
+Introduction to Stacks
+
+The Stack is a linear data structure, which follows a particular order in which the operations are performed. The order may be LIFO(Last In First Out) or FILO(First In Last Out).
+
+The LIFO order says that the element which is inserted at the last in the Stack will be the first one to be removed. In LIFO order, the insertion takes place at the rear end of the stack and deletion occurs at the rear of the stack.
+
+The FILO order says that the element which is inserted at the first in the Stack will be the last one to be removed. In FILO order, the insertion takes place at the rear end of the stack and deletion occurs at the front of the stack.
+
+Mainly, the following three basic operations are performed in the stack:
+
+-) Push: Adds an item in the stack. If the stack is full, then it is said to be an Overflow condition.
+
+-) Pop: Removes an item from the stack. The items are popped in the reversed order in which they were pushed. If the stack is empty, then it is said to be an Underflow condition.
+
+-) Peek or Top: Returns the top element of the stack.
+
+-) isEmpty: Returns true if the stack is empty, else false
+
+
+Infix to Postfix conversion using Stack
+
+Infix expression: The expression of the form a op b. When an operator is in-between every pair of operands.
+
+Postfix expression: The expression of the form a b op. When an operator is followed for every pair of operands.
+
+Algorithm to Convert an Infix expression to Postfix:
+
+1) Scan the infix expression from left to right.
+2) If the scanned character is an operand, output it.
+3) Else,
+    If the precedence of the scanned operator is greater than the precedence of the operator in the stack(or the stack is empty or the stack contains a '(' ), push it.
+    
+    Else, Pop all the operators from the stack which are greater than or equal to in precedence than that of the scanned operator. After doing that Push the scanned operator to the stack. (If you encounter parenthesis while popping then stop there and push the scanned operator in the stack.)
+4) If the scanned character is an ‘(‘, push it to the stack.
+5) If the scanned character is an ‘)’, pop the stack and and output it until a ‘(‘ is encountered, and discard both the parenthesis.
+6) Repeat steps 2-6 until infix expression is scanned.
+7) Print the output.
+8) Pop and output from the stack until it is not empty.
+
+
+
+Questions - 
+1) Special Stack - https://practice.geeksforgeeks.org/problems/special-stack/1
+2) Evaluation of Postfix Expression - https://practice.geeksforgeeks.org/problems/evaluation-of-postfix-expression1735/1
+3) Queue using two Stacks - https://practice.geeksforgeeks.org/problems/queue-using-two-stacks/1 
+4) Introduction to Circular Queue - https://www.geeksforgeeks.org/circular-queue-set-1-introduction-array-implementation/ 
