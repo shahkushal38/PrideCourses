@@ -1,0 +1,182 @@
+Questions on Stacks and Queues
+
+1) Evaluating Postfix expressions using Stack
+
+The Postfix notation is used to represent algebraic expressions. The expressions written in postfix form are evaluated faster compared to infix notation as parenthesis are not required in postfix. We have already discussed the conversion of infix to postfix expressions
+
+Following is the algorithm for evaluation of postfix expressions:
+1) Create a stack to store operands (or values).
+2) Scan the given expression and do following for every scanned element.
+    If the element is a number, push it into the stack.
+    If the element is an operator, pop operands for the operator from the stack. Evaluate the operator and push the result back to the stack.
+3) When the expression is ended, the number in the stack is the final answer.
+
+// Java proram to evaluate value of a postfix expression
+
+import java.util.Stack;
+
+public class Test 
+{
+    // Method to evaluate value of a postfix expression
+    static int evaluatePostfix(String exp)
+    {
+        // create a stack
+        Stack<Integer> stack=new Stack<>();
+        
+        // Scan all characters one by one
+        for(int i=0;i<exp.length();i++)
+        {
+            char c=exp.charAt(i);
+            
+            // If the scanned character is an operand (number here),
+            // push it to the stack.
+            if(Character.isDigit(c))
+                stack.push(c - '0');
+            
+            //  If the scanned character is an operator, pop two
+            // elements from stack apply the operator
+            else
+            {
+                int val1 = stack.pop();
+                int val2 = stack.pop();
+                
+                switch(c)
+                {
+                    case '+':
+                    stack.push(val2+val1);
+                    break;
+                    
+                    case '-':
+                    stack.push(val2- val1);
+                    break;
+                    
+                    case '/':
+                    stack.push(val2/val1);
+                    break;
+                    
+                    case '*':
+                    stack.push(val2*val1);
+                    break;
+              }
+            }
+        }
+        return stack.pop();    
+    }
+    
+    // Driver program to test above functions
+    public static void main(String[] args) 
+    {
+        String exp="231*+9-";
+        System.out.println("postfix evaluation: "+evaluatePostfix(exp));
+    }
+}
+
+
+2) Implement Queue using Stack
+
+Given a stack data structure with push and pop operations, the task is to implement a queue using instances of stack data structure and operations on them.
+
+import java.util.*;
+
+class GFG 
+{ 
+static class Queue 
+{ 
+    static Stack<Integer> s1 = new Stack<Integer>(); 
+    static Stack<Integer> s2 = new Stack<Integer>(); 
+
+    static void enQueue(int x) 
+    { 
+        // Move all elements from s1 to s2 
+        while (!s1.isEmpty())
+        { 
+            s2.push(s1.pop()); 
+            //s1.pop(); 
+        } 
+
+        // Push item into s1 
+        s1.push(x); 
+
+        // Push everything back to s1 
+        while (!s2.isEmpty()) 
+        { 
+            s1.push(s2.pop()); 
+            //s2.pop(); 
+        } 
+    } 
+
+    // Dequeue an item from the queue 
+    static int deQueue() 
+    { 
+        // if first stack is empty 
+        if (s1.isEmpty()) 
+        { 
+            System.out.println("Q is Empty"); 
+            System.exit(0); 
+        } 
+
+        // Return top of s1 
+        int x = s1.peek(); 
+        s1.pop(); 
+        return x; 
+    } 
+}; 
+
+// Driver code 
+public static void main(String[] args) 
+{ 
+    Queue q = new Queue(); 
+    q.enQueue(1); 
+    q.enQueue(2); 
+    q.enQueue(3); 
+
+    System.out.println(q.deQueue()); 
+    System.out.println(q.deQueue());
+    System.out.println(q.deQueue());
+} 
+} 
+
+
+3) Celebrity Problem
+
+A celebrity is a person who is known to all but does not know anyone at a party. If you go to a party of N people, find if there is a celebrity in the party or not.
+
+A square NxN matrix M[][] is used to represent people at the party such that if an element of row i and column j  is set to 1 it means ith person knows jth person. Here M[i][i] will always be 0.
+
+//User function Template for Java
+
+
+class Solution
+{ 
+    //Function to find if there is a celebrity in the party or not.
+    int celebrity(int M[][], int n)
+    {
+    	// code here 
+    	Stack<Integer> stack = new Stack<Integer>();
+    	 for(int i=0;i<n;i++){
+    	     stack.push(i);
+    	 }
+    	 while(stack.size()>1){
+    	     int a  = stack.pop();
+    	     int b = stack.pop();
+    	     
+    	     if(M[a][b]==1){
+    	         stack.push(b);
+    	     }else{
+    	         stack.push(a);
+    	     }
+    	 }
+    	 if(stack.isEmpty()){
+    	     return -1;
+    	 }
+    	 //to check
+    	 int cel = stack.pop();
+    	 for(int i=0;i<n;i++){
+    	     if(i!=cel && (M[i][cel]!=1 || M[cel][i]!=0)){
+    	         return -1;
+    	     }
+    	 }
+    	 return cel;
+    }
+    
+}
