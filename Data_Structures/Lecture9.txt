@@ -1,0 +1,232 @@
+Topic -  LinkedList
+
+Topic -  Doubly Linked List
+
+Similar to Singly Linked Lists, Doubly Linked Lists are also a sequential data structure with the only difference that the doubly linked lists contain two pointers instead of one to store the address of both next node and previous node respectively.
+
+Class of a Doubly LinkedList
+
+public class DLL { 
+    Node head; // head of list 
+  
+    /* Doubly Linked list Node*/
+    class Node { 
+        int data; 
+        Node prev; 
+        Node next; 
+  
+        // Constructor to create a new node 
+        // next and prev is by default initialized as null 
+        Node(int d) { data = d; } 
+    } 
+} 
+
+Code for Insertion of Node in a LinkedList
+
+// A complete working Java program to demonstrate  
+// Doubly Linked List 
+
+public class DLL { 
+    Node head; // head of list 
+
+    /* Doubly Linked list Node*/
+    class Node { 
+        int data; 
+        Node prev; 
+        Node next; 
+
+        // Constructor to create a new node 
+        // next and prev is by default initialized as null 
+        Node(int d) { data = d; } 
+    } 
+ 
+    // Add a node at the end of the list 
+    void append(int new_data) 
+    { 
+        /* 1. allocate node 
+           2. put in the data */
+        Node new_node = new Node(new_data); 
+
+        Node last = head; /* used in step 5 */
+
+        /* 3. This new node is going to be the last node, so 
+              make next of it as NULL */
+        new_node.next = null; 
+
+        /* 4. If the Linked List is empty, then make the new 
+              node as head */
+        if (head == null) { 
+            new_node.prev = null; 
+            head = new_node; 
+            return; 
+        } 
+
+        /* 5. Else traverse till the last node */
+        while (last.next != null) 
+            last = last.next; 
+
+        /* 6. Change the next of last node */
+        last.next = new_node; 
+
+        /* 7. Make last node as previous of new node */
+        new_node.prev = last; 
+    } 
+
+    // This function prints contents of linked list
+    //  starting from the given node 
+    public void printlist(Node node) 
+    { 
+        Node last = null; 
+
+        // Traverse the linked list in forward direction
+        // using the next node's pointer present 
+        // at each node
+        System.out.println("Traversal in forward Direction"); 
+        while (node != null) { 
+            System.out.print(node.data + " "); 
+            last = node; 
+            node = node.next; 
+        } 
+        System.out.println(); 
+        
+        // Traverse the linked list in reverse direction 
+        // starting from the last node using the previous
+        // node's pointer present at each node
+        System.out.println("Traversal in reverse direction"); 
+        while (last != null) { 
+            System.out.print(last.data + " "); 
+            last = last.prev; 
+        } 
+    } 
+
+    /* Driver program to test above functions*/
+    public static void main(String[] args) 
+    { 
+        /* Start with the empty list */
+        DLL dll = new DLL(); 
+
+        // Insert 6. So linked list becomes 6->NULL 
+        dll.append(6); 
+
+        // Insert 7. So linked list becomes 6->7->NULL 
+        dll.append(7); 
+
+        // Insert 1. So linked list becomes 6->7->1->NULL 
+        dll.append(1); 
+
+        // Insert 4. So linked list becomes 6->7->1->4->NULL 
+        dll.append(4); 
+
+        System.out.println("Created DLL is: "); 
+        dll.printlist(dll.head); 
+    } 
+} 
+
+
+
+Circular LinkedList 
+
+A circular linked list is a linked list where all nodes are connected to form a circle. There is no NULL at the end. A circular linked list can be a singly circular linked list or doubly circular linked list.
+
+Problems on LinkedList
+
+Problem #1 : Reverse a Linked List
+
+Given a pointer to the head node of a linked list, the task is to reverse the linked list. We need to reverse the list by changing links between nodes.
+ 
+
+Three pointer solution - current, next and null
+
+Pseudo Code
+
+while(current!=null){
+    next = current.next;
+    current.next = prev;
+    prev = current;
+    current=next;
+}
+
+head = prev;
+
+
+Problem #2 : Detect Loop in a Linked List
+
+Given a linked list, check if the the linked list has loop or not. Below diagram shows a linked list with a loop.
+
+Approach 1 - Hashing Solution 
+
+Approach 2 - Floyd’s Cycle-Finding Algorithm:
+
+bool detectloop(Node head) 
+{
+    Node slow_p = head, fast_p = head
+  
+    while (slow_p && fast_p && fast_p->next) 
+    {
+        slow_p = slow_p->next
+        fast_p = fast_p->next->next
+        if (slow_p == fast_p) 
+            return true 
+    }
+    return false  
+}  
+
+
+Problem #3 : Find Intersection Point of Two Linked List
+
+There are two singly linked lists in a system. By some programming error, the end node of one of the linked list got linked to the second list, forming an inverted Y shaped list. Write a program to get the point where two linked list merge. 
+
+Naive Solution = Hashing Solution
+
+Node Count Difference Solution : Problem can be solved following these steps -
+ 
+Get count of the nodes in the first list, let count be c1.
+Get a count of the nodes in the second list, let count be c2.
+Get the difference of counts d = abs(c1 – c2).
+Now traverse the bigger list from the first node till d nodes so that from here onwards both the lists have equal no of nodes.
+Then we can traverse both the lists in parallel till we come across a common node. (Note that getting a common node is done by comparing the address of the nodes)
+
+Code - 
+
+/* function to get the intersection point of two linked 
+   lists head1 and head2 */
+int getIntesectionNode( Node* head1, Node* head2) 
+{
+    c1 = getCount(head1)
+    c2 = getCount(head2)
+    d // difference 
+
+    if(c1 > c2) 
+        d = c1 - c2
+        return utility(d, head1, head2)
+    else :
+        d = c2 - c1
+        return utility(d, head2, head1)
+}
+/* function to get the intersection point of two linked 
+   lists head1 and head2 where head1 has d more nodes than 
+   head2 */
+int utility(d, Node* head1, Node* head2) 
+{
+    Node* current1 = head1
+    Node* current2 = head2
+  
+    for ( i = 0 to d-1 )
+    {
+        if(current1 == NULL) 
+            return -1
+        current1 = current1->next
+    }
+
+    while(current1 !=  NULL && current2 != NULL) 
+    {
+        if(current1 == current2) 
+            return current1->data
+        current1= current1->next
+        current2= current2->next
+    }
+    return -1
+}
+
+
+
