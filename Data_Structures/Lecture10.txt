@@ -1,0 +1,233 @@
+Topic - Trees 
+
+A Tree is a non-linear data structure where each node is connected to a number of nodes with the help of pointers or references
+
+Basic Tree Terminologies:
+
+Root: The root of a tree is the first node of the tree. 
+Edge: An edge is a link connecting any two nodes in the tree. 
+Siblings: The children nodes of same parent are called siblings. That is, the nodes with same parent are called siblings. 
+Leaf Node: A node is said to be the leaf node if it has no children. 
+Height of a Tree: Height of a tree is defined as the total number of levels in the tree or the length of the path from the root node to the node present at the last level. 
+
+Binary Tree
+
+A Tree is said to be a Binary Tree if all of its nodes have atmost 2 children. That is, all of its node can have either no child, 1 child, or 2 child nodes.
+
+Properties of a Binary Tree: 
+1) The maximum number of nodes at level 'l' of a binary tree is (2^l - 1).
+2) Maximum number of nodes in a binary tree of height 'h' is (2^h – 1).  
+3) In a Binary Tree with N nodes, the minimum possible height or the minimum number of levels is Log2(N+1).
+4) A Binary Tree with L leaves has at least (Log2L + 1) levels.
+5) In a Binary tree in which every node has 0 or 2 children, the number of leaf nodes is always one more than the nodes with two children.
+
+Types of Binary Trees: Based on the structure and number of parents and children nodes, a Binary Tree is classified into the following common types:
+
+Full Binary Tree: A Binary Tree is full if every node has either 0 or 2 children.
+We can also say that a full binary tree is a binary tree in which all nodes except leave nodes have two children.
+
+Complete Binary Tree: A Binary Tree is a complete Binary Tree if all levels are completely filled except possibly the last level and the last level has all keys as left as possible
+
+Perfect Binary Tree: A Binary tree is a Perfect Binary Tree when all internal nodes have two children and all the leave nodes are at the same level
+
+A Perfect Binary Tree of height h (where height is the number of nodes on the path from the root to leaf) has 2^h – 1 node.
+
+
+Binary Tree Traversals - 
+     1
+    / \
+   2   3
+  /\   
+ 4 5
+
+Inorder (Left, Root, Right) : 4 2 5 1 3
+Preorder (Root, Left, Right) : 1 2 4 5 3.
+Postorder (Left, Right, Root) : 4 5 2 3 1
+
+Code for Tree Traversals - 
+
+// Java program for different tree traversals
+
+/* Class containing left and right child of current
+   node and key value*/
+class Node
+{
+    int key;
+    Node left, right;
+
+    public Node(int item)
+    {
+        key = item;
+        left = right = null;
+    }
+}
+
+class BinaryTree
+{
+    // Root of Binary Tree
+    Node root;
+
+    BinaryTree()
+    {
+        root = null;
+    }
+
+    // Method to print postorder traversal.
+    void printPostorder(Node node)
+    {
+        if (node == null)
+            return;
+
+        // first recur on left subtree
+        printPostorder(node.left);
+
+        // then recur on right subtree
+        printPostorder(node.right);
+
+        // now deal with the node
+        System.out.print(node.key + " ");
+    }
+
+    // Method to print inorder traversal
+    void printInorder(Node node)
+    {
+        if (node == null)
+            return;
+
+        /* first recur on left child */
+        printInorder(node.left);
+
+        /* then print the data of node */
+        System.out.print(node.key + " ");
+
+        /* now recur on right child */
+        printInorder(node.right);
+    }
+
+    // Method to print preorder traversal
+    void printPreorder(Node node)
+    {
+        if (node == null)
+            return;
+
+        /* first print data of node */
+        System.out.print(node.key + " ");
+
+        /* then recur on left sutree */
+        printPreorder(node.left);
+
+        /* now recur on right subtree */
+        printPreorder(node.right);
+    }
+
+    // Wrappers over above recursive functions
+    void printPostorder() {     printPostorder(root); }
+    void printInorder() {     printInorder(root); }
+    void printPreorder() {     printPreorder(root); }
+
+    // Driver method
+    public static void main(String[] args)
+    {
+        BinaryTree tree = new BinaryTree();
+        tree.root = new Node(1);
+        tree.root.left = new Node(2);
+        tree.root.right = new Node(3);
+        tree.root.left.left = new Node(4);
+        tree.root.left.right = new Node(5);
+
+        System.out.println("Preorder traversal of binary tree is ");
+        tree.printPreorder();
+
+        System.out.println("\nInorder traversal of binary tree is ");
+        tree.printInorder();
+
+        System.out.println("\nPostorder traversal of binary tree is ");
+        tree.printPostorder();
+    }
+}
+
+
+Level Order traversal in Binary Tree
+
+In the Level Order Traversal, the binary tree is traversed level-wise starting from the first to last level sequentially.
+
+[Diagram]
+
+Algorithm: 
+The Level Order Traversal can be implemented efficiently using a Queue.
+1) Create an empty queue q.
+2) Push the root node of tree to q. That is, q.push(root).
+3) Loop while the queue is not empty:
+    Pop the top node from queue and print the node.
+    Enqueue node's children (first left then right children) to q
+4) Repeat the process until queue is not empty.
+
+// Iterative Queue based Java program to do
+// level order traversal of Binary Tree 
+
+import java.util.Queue; 
+import java.util.LinkedList; 
+
+/* Class to represent Tree node */
+class Node { 
+    int data; 
+    Node left, right; 
+
+    public Node(int item) { 
+        data = item; 
+        left = null; 
+        right = null; 
+    } 
+} 
+
+/* Class to print Level Order Traversal */
+class BinaryTree { 
+
+    Node root; 
+
+    /* Given a binary tree. Print its nodes in  
+       level order using array for implementing queue */
+    void printLevelOrder() 
+    { 
+        Queue<Node> queue = new LinkedList<Node>(); 
+        queue.add(root); 
+        while (!queue.isEmpty()) 
+        { 
+            Node tempNode = queue.poll(); 
+            System.out.print(tempNode.data + " "); 
+
+            /* Enqueue left child */
+            if (tempNode.left != null) { 
+                queue.add(tempNode.left); 
+            } 
+
+            /* Enqueue right child */
+            if (tempNode.right != null) { 
+                queue.add(tempNode.right); 
+            } 
+        } 
+    } 
+
+    // Driver Code
+    public static void main(String args[]) 
+    { 
+        // Create the following Binary Tree
+        //         1
+        //        / \
+        //       2   3
+        //      / \
+        //     4   5
+        BinaryTree tree_level = new BinaryTree(); 
+        tree_level.root = new Node(1); 
+        tree_level.root.left = new Node(2); 
+        tree_level.root.right = new Node(3); 
+        tree_level.root.left.left = new Node(4); 
+        tree_level.root.left.right = new Node(5); 
+
+        System.out.println("Level order traversal " + 
+                                "of binary tree is - "); 
+        tree_level.printLevelOrder(); 
+    } 
+} 
+
+

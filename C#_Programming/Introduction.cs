@@ -46,6 +46,9 @@ Convert.ToDouble
 // Online C# Editor for free
 // Write, Edit and Run your C# code using C# Online Compiler
 
+int a =10
+float b = a;
+
 using System;
 
 public class HelloWorld
