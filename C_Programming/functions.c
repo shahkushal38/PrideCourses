@@ -12,22 +12,20 @@ void = null, no return value
 
 specifier
 void/int/char/float function_name(){
-
-    i
+    return {void/int/char/float}
 }
 no return no arguments
-
 
 
 #include<stdio.h>
 #include<conio.h>
 
-void func(){
+void func(int num){
     int i;
     int j;
 
-    for(i=0;i<10;i++){
-        for(j=10;j>i;j--){
+    for(i=0;i<num;i++){
+        for(j=num;j>i;j--){
             printf("* ");
         }
         printf("\n")
@@ -47,9 +45,10 @@ int addition(int a, int b){
 }
 void main(){
     clrscr();
-    func();
+    func(10);
     prime();
     int a = 10;
-    int sum = addition(a, 20);
+    int sum =addition(a, 20);
+    printf("Sum - %d",  sum);
     getch();
 }
